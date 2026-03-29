@@ -1,0 +1,8 @@
+node_modules/
+*.pkl
+*.csv
+*.png
+.DS_Store
+server.log
+dist/
+.vite/
