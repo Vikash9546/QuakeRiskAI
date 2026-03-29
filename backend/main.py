@@ -115,23 +115,25 @@ def geocode(address: str):
     import requests
     try:
         # 1. Try Google Geocoding first
-        params = {
-            "address": address,
-            "key": "AIzaSyBosxXVCpu_uoc0EBIPZ9KjKdX93ehQV40"
-        }
-        response = requests.get(
-            "https://maps.googleapis.com/maps/api/geocode/json",
-            params=params,
-            timeout=10
-        )
-        data = response.json()
+        if GOOGLE_MAPS_API_KEY:
+            params = {
+                "address": address,
+                "key": GOOGLE_MAPS_API_KEY
+            }
+            response = requests.get(
+                "https://maps.googleapis.com/maps/api/geocode/json",
+                params=params,
+                timeout=10
+            )
+            data = response.json()
+            if data.get("status") == "OK":
+                res = data["results"][0]["geometry"]["location"]
+                return {"lat": res["lat"], "lng": res["lng"]}
+            else:
+                print(f"Google Geocoding failed: {data.get('status')} - {data.get('error_message')}")
         
-        if data["status"] == "OK":
-            location = data["results"][0]["geometry"]["location"]
-            return {"lat": location["lat"], "lng": location["lng"]}
-        
-        # If Google is Denied or Fails, use OpenCage (No Key required for small sets)
-        print(f"Google Geocode Failed: {data.get('status')}. Trying Fallback...")
+        # 2. Fallback to Nominatim (OpenStreetMap) if Google fails or key is missing
+        print("Falling back to OpenStreetMap geocoding...")
         
         # Using a public geocoding fallback for demonstration
         fallback_url = f"https://nominatim.openstreetmap.org/search?q={address}&format=json&limit=1"

@@ -1,8 +1,23 @@
-node_modules/
-*.pkl
-*.csv
-*.png
+# Local environment variables
+.env
+
+# Virtual Environment
+venv/
+.venv/
+
+# Pycache
+__pycache__/
+*.pyc
+
+# OS Files
 .DS_Store
-server.log
+Thumbs.db
+
+# Build artifacts
 dist/
-.vite/
+dist-ssr/
+*.local
+
+# Dependencies
+node_modules/
+package-lock.json (if not needed)
