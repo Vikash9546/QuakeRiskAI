@@ -51,18 +51,41 @@ def read_root():
 
 @app.post("/predict", response_model=PredictionOutput)
 def predict(input_data: PredictionInput):
+    import requests
     try:
-        # Preprocess input
+        # 1. Fetch real-time USGS data to calculate dynamic features
+        # We check the region (bounding box India) to get actual frequency
+        usgs_url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=8&maxlatitude=38&minlongitude=68&maxlongitude=98&limit=100"
+        response = requests.get(usgs_url, timeout=10)
+        data = response.json()
+        
+        # Calculate features based on real data
+        # freq_30: number of events in the India region
+        freq_30 = float(len(data.get("features", [])))
+        
+        # time_diff: approximate time since last event in hours (default to 1.0 if unknown)
+        time_diff = 1.0
+        if freq_30 > 0:
+            last_event_time = data["features"][0]["properties"]["time"]
+            current_time = pd.Timestamp.now().value // 10**6 # to ms
+            time_diff = max(0.1, (current_time - last_event_time) / (1000 * 3600)) # hours
+
+        # 2. Preprocess input
         features = pd.DataFrame([{
             'latitude': input_data.latitude,
             'longitude': input_data.longitude,
             'depth': input_data.depth,
-            'freq_30': 15.0,
-            'time_diff': 1.0
+            'freq_30': freq_30,
+            'time_diff': time_diff
         }])
         
-        # Risk Prediction
+        # Scale some inputs if needed? No, model is already trained
+        
+        # 3. Predict using re-trained models
         risk_prob = risk_model.predict_proba(features)[0][1]
+        
+        # Add some location-based weight for more varied results if needed
+        # But letting the model handle it for now
         
         if risk_prob < 0.3:
             risk_level = "Low"
@@ -71,10 +94,8 @@ def predict(input_data: PredictionInput):
         else:
             risk_level = "High"
             
-        # Magnitude Prediction
         predicted_mag = float(magnitude_model.predict(features)[0])
         
-        # Hotspot Detection
         coords = pd.DataFrame([[input_data.latitude, input_data.longitude]], columns=['latitude', 'longitude'])
         cluster = int(hotspot_model.predict(coords)[0])
         
@@ -85,7 +106,7 @@ def predict(input_data: PredictionInput):
             "hotspot_cluster": cluster
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Prediction Error: {str(e)}")
 
 @app.get("/resolve-map")
 def resolve_map(url: str):
