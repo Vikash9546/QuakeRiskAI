@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker as LeafletMarker, useMapEvents } from '
 import 'leaflet/dist/leaflet.css';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, MapPin, TrendingUp, Info, AlertTriangle, Link as LinkIcon, Search, Globe, FileText, Database, Heart, Download, Bell, Settings, User, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Activity, MapPin, TrendingUp, Info, AlertTriangle, Link as LinkIcon, Search, Globe, FileText, Database, Heart, Download, Bell, Settings, User, Clock, ShieldCheck } from 'lucide-react';
 
 // Leaflet markers fix
 import L from 'leaflet';
@@ -17,7 +17,7 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://quakeriskai.onrender.com';
 
 function LeafletClick({ setPosition }) {
     useMapEvents({
@@ -66,6 +66,7 @@ function App() {
     const handleAddressSearch = async () => {
         setResolving(true);
         try {
+            // This still uses the GOOGLE KEY through the backend for high-accuracy
             const response = await axios.get(`${API_BASE}/geocode`, { params: { address: addressInput } });
             if (response.data.lat) {
                 const newPos = { lat: response.data.lat, lng: response.data.lng };
@@ -104,7 +105,7 @@ function App() {
             case 'Seismic Log':
                 return (
                     <div style={{ padding: '32px', overflowY: 'auto', flex: 1 }}>
-                        <span className="section-label">Historical Seismic Events</span>
+                        <span className="section-label">Historical Seismic Events (India)</span>
                         <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {seismicLog.map((ev, i) => (
                                 <motion.div key={i} className="card" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -150,7 +151,7 @@ function App() {
                                             </div>
                                             <div>
                                                 <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Assessment at {h.lat.toFixed(4)}°, {h.lng.toFixed(4)}°</div>
-                                                <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '4px' }}>Analyzed at {h.time} • Risk Level: <span style={{fontWeight: 700, color: h.risk_level === 'High' ? '#ef4444' : '#10b981'}}>{h.risk_level}</span></div>
+                                                <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '4px' }}>Analyzed at {h.time} • Risk: <span style={{fontWeight: 700, color: h.risk_level === 'High' ? '#ef4444' : '#10b981'}}>{h.risk_level}</span></div>
                                             </div>
                                         </div>
                                         <div style={{ display: 'flex', gap: '12px' }}>
@@ -162,7 +163,6 @@ function App() {
                                                 href={`${API_BASE}/generate-report?lat=${h.lat}&lng=${h.lng}&risk=${h.risk_level}&prob=${h.risk_probability}&mag=${h.predicted_magnitude}`}
                                                 style={{ color: '#10b981', background: '#ecfdf5', padding: '8px', borderRadius: '4px', display: 'flex' }}
                                                 target="_blank"
-                                                title="Download PDF"
                                             >
                                                 <Download size={18} />
                                             </a>
@@ -173,58 +173,8 @@ function App() {
                                 <div className="card" style={{ opacity: 0.6, textAlign: 'center', padding: '60px' }}>
                                     <Search size={48} color="#6c757d" style={{ marginBottom: '16px' }} />
                                     <p>No assessments recorded in this session.</p>
-                                    <p style={{ fontSize: '0.75rem', marginTop: '8px' }}>Perform an analysis in the 'Global Map' tab to populate this report.</p>
                                 </div>
                             )}
-                        </div>
-                    </div>
-                );
-            case 'Station Health':
-                const stations = [
-                    { name: 'Western Ghats Node', loc: 'Pune, IN', status: 'Stable', lat: '12ms', uptime: '99.98%', model: 'Guralp CMG-5T' },
-                    { name: 'Himalayan Array', loc: 'Uttarkashi, IN', status: 'Stable', lat: '45ms', uptime: '98.50%', model: 'Nanometrics Trillium' },
-                    { name: 'Coastal Monitor', loc: 'Chennai, IN', status: 'Stable', lat: '18ms', uptime: '99.99%', model: 'Kinemetrics Etna' },
-                    { name: 'Indo-Gangetic Sensor', loc: 'New Delhi, IN', status: 'Maintenance', lat: '--', uptime: '92.10%', model: 'Quanterra Q330' },
-                ];
-                return (
-                    <div style={{ padding: '32px', flex: 1, overflowY: 'auto' }}>
-                        <span className="section-label">Subcontinent Sensor Network</span>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '20px' }}>
-                            {stations.map(st => (
-                                <div key={st.name} className="card">
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                                            <div style={{ background: st.status === 'Stable' ? '#d1fae5' : '#fef3c7', padding: '10px', borderRadius: '8px' }}>
-                                                <ShieldCheck color={st.status === 'Stable' ? '#059669' : '#d97706'} />
-                                            </div>
-                                            <div>
-                                                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{st.name}</div>
-                                                <div style={{ fontSize: '0.7rem', color: '#6c757d' }}>{st.loc}</div>
-                                            </div>
-                                        </div>
-                                        <span style={{ 
-                                            padding: '4px 8px', borderRadius: '4px', fontSize: '0.6rem', fontWeight: 800,
-                                            background: st.status === 'Stable' ? '#d1fae5' : '#fef3c7',
-                                            color: st.status === 'Stable' ? '#059669' : '#d97706'
-                                        }}>{st.status}</span>
-                                    </div>
-                                    
-                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', marginTop: '20px', padding: '12px', background: '#f8f9fa', borderRadius: '4px' }}>
-                                        <div>
-                                            <div style={{ fontSize: '0.55rem', color: '#6c757d' }}>LATENCY</div>
-                                            <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>{st.lat}</div>
-                                        </div>
-                                        <div>
-                                            <div style={{ fontSize: '0.55rem', color: '#6c757d' }}>UPTIME</div>
-                                            <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>{st.uptime}</div>
-                                        </div>
-                                        <div>
-                                            <div style={{ fontSize: '0.55rem', color: '#6c757d' }}>MODEL</div>
-                                            <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>{st.model.split(' ')[1]}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 );
@@ -233,7 +183,7 @@ function App() {
                     <div className="map-viewport">
                         <MapContainer
                             center={[position.lat, position.lng]}
-                            zoom={4}
+                            zoom={5}
                             style={{ height: '100%', width: '100%' }}
                             ref={(m) => (mapRef.current = m)}
                         >
@@ -242,11 +192,11 @@ function App() {
                             <LeafletClick setPosition={setPosition} />
                         </MapContainer>
 
-                        <div className="map-status">Live Monitoring Active</div>
+                        <div className="map-status">Network Status: Online</div>
                         <div className="map-focus">
                             <label style={{ fontSize: '0.6rem', fontWeight: 600, color: '#6c757d' }}>FOCUS COORDINATE</label>
                             <div style={{ fontWeight: 700, fontSize: '0.9rem', marginTop: '4px' }}>
-                                {position.lat.toFixed(4)}° N, {position.lng.toFixed(4)}° W
+                                {position.lat.toFixed(4)}° N, {position.lng.toFixed(4)}° E
                             </div>
                         </div>
                     </div>
@@ -282,62 +232,30 @@ function App() {
                     <span className="section-label">Location Analysis</span>
                     <label style={{ fontSize: '0.65rem', fontWeight: 700, marginBottom: '8px', display: 'block' }}>SEARCH BY FULL ADDRESS</label>
                     <div style={{ display: 'flex', gap: '8px' }}>
-                        <input 
-                            className="input-box" 
-                            style={{ flex: 1 }}
-                            placeholder="Street, city, country..." 
-                            value={addressInput} 
-                            onChange={(e) => setAddressInput(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleAddressSearch()}
-                        />
-                        <button 
-                            className="eval-btn" 
-                            style={{ width: 'auto', padding: '0 16px', background: '#10b981' }} 
-                            onClick={handleAddressSearch}
-                            disabled={resolving || !addressInput}
-                        >
-                            {resolving ? "..." : "Find"}
-                        </button>
+                        <input className="input-box" style={{ flex: 1 }} placeholder="Street, city, country..." value={addressInput} onChange={(e) => setAddressInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleAddressSearch()} />
+                        <button className="eval-btn" style={{ width: 'auto', padding: '0 16px', background: '#10b981' }} onClick={handleAddressSearch} disabled={resolving || !addressInput}>{resolving ? "..." : "Find"}</button>
                     </div>
                 </div>
 
                 <div>
                     <span className="section-label">Primary Coordinates</span>
                     <div className="coord-row">
-                        <div className="coord-field">
-                            <label>LATITUDE</label>
-                            <input className="input-box" value={position.lat.toFixed(4)} readOnly />
-                        </div>
-                        <div className="coord-field">
-                            <label>LONGITUDE</label>
-                            <input className="input-box" value={position.lng.toFixed(4)} readOnly />
-                        </div>
+                        <div className="coord-field"><label>LATITUDE</label><input className="input-box" value={position.lat.toFixed(4)} readOnly /></div>
+                        <div className="coord-field"><label>LONGITUDE</label><input className="input-box" value={position.lng.toFixed(4)} readOnly /></div>
                     </div>
+                    <div className="coord-field" style={{marginTop: '16px'}}><label>EVENT DEPTH (KM)</label><input className="input-box" type="number" step="0.1" value={depth} onChange={(e) => setDepth(e.target.value)} /></div>
                 </div>
 
-                <button className="eval-btn" onClick={handlePredict} disabled={loading}>
-                    {loading ? "Calculating..." : "Evaluate Risk"}
-                </button>
+                <button className="eval-btn" onClick={handlePredict} disabled={loading}>{loading ? "Calculating..." : "Evaluate Risk"}</button>
 
                 <div className="results-panel">
                     <div className="risk-level-card">
                         <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#6c757d' }}>ASSESSED RISK LEVEL</span>
-                        <div style={{ fontSize: '1.5rem', fontWeight: 700, marginTop: '8px' }}>
-                            {prediction ? `${prediction.risk_level} Risk` : "--"}
-                        </div>
+                        <div style={{ fontSize: '1.5rem', fontWeight: 700, marginTop: '8px' }}>{prediction ? `${prediction.risk_level} Risk` : "--"}</div>
                     </div>
-
                     <div className="stat-grid">
-                        <div className="stat-card">
-                            <span className="stat-label">PROBABILITY</span>
-                            <div className="stat-val">{prediction ? prediction.risk_probability : "--"} <span style={{fontSize: '0.7rem'}}>%</span></div>
-                            <div style={{ fontSize: '0.55rem', color: '#6c757d', marginTop: '4px' }}>Next 24 Hours</div>
-                        </div>
-                        <div className="stat-card">
-                            <span className="stat-label">MAGNITUDE</span>
-                            <div className="stat-val">{prediction ? prediction.predicted_magnitude : "--"} <span style={{fontSize: '0.7rem'}}>Mw</span></div>
-                            <div style={{ fontSize: '0.55rem', color: '#6c757d', marginTop: '4px' }}>Estimated Cap</div>
-                        </div>
+                        <div className="stat-card"><span className="stat-label">PROBABILITY</span><div className="stat-val">{prediction ? prediction.risk_probability : "--"} %</div></div>
+                        <div className="stat-card"><span className="stat-label">MAGNITUDE</span><div className="stat-val">{prediction ? prediction.predicted_magnitude : "--"} Mw</div></div>
                     </div>
                 </div>
             </aside>
