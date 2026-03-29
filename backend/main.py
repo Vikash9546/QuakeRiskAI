@@ -18,15 +18,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load models
-MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
+# Define base path relative to this file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
+
+# Model Loading with error handling
 try:
-    risk_model = joblib.load(os.path.join(MODEL_DIR, "risk_model.pkl"))
-    magnitude_model = joblib.load(os.path.join(MODEL_DIR, "magnitude_model.pkl"))
-    hotspot_model = joblib.load(os.path.join(MODEL_DIR, "hotspot_model.pkl"))
-    print("Models loaded successfully.")
+    risk_model = joblib.load(os.path.join(MODELS_DIR, "risk_model.pkl"))
+    magnitude_model = joblib.load(os.path.join(MODELS_DIR, "magnitude_model.pkl"))
+    hotspot_model = joblib.load(os.path.join(MODELS_DIR, "hotspot_model.pkl"))
+    print("All models loaded successfully!")
 except Exception as e:
-    print(f"Error loading models: {e}")
+    print(f"Error loading models from {MODELS_DIR}: {e}")
+    risk_model = None
+    magnitude_model = None
+    hotspot_model = None
 
 class PredictionInput(BaseModel):
     latitude: float
