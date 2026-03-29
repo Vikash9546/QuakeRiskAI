@@ -1,34 +1,90 @@
-# Earthquake Risk Analysis System - Instructions
+# 🛰️ QuakeRisk AI: Global & Regional Seismic Hazard Intelligence
 
-## Project Overview
-This project is a full-stack earthquake risk estimation system involving specialized machine learning models, a FastAPI backend, and a modern React dashboard.
+QuakeRisk AI is a sophisticated full-stack earthquake monitoring and risk analysis platform. Built with a focus on the Indian subcontinent, it leverages **Machine Learning (Random Forest)** and real-time **USGS Geospatial data** to provide high-precision seismic intelligence.
 
-## Prerequisites
-- Python 3.8+
-- Node.js & npm
+---
 
-## Running the Application
+## 🚀 Key Features
 
-### 1. Backend (FastAPI)
-- Navigate to the `backend` directory.
-- Start the server:
-  ```bash
-  python3 main.py
-  ```
-- The API will run at `http://localhost:8000`.
+### 🌍 1. Advanced Geospatial Monitoring
+- **Interactive Global Map**: Precise coordinate selection using Leaflet & OpenStreetMap.
+- **Smart Address Search**: Instant geocoding that pans the map to any specific city or street worldwide.
+- **High-Fidelity Tracking**: Real-time display of focus coordinates and monitoring status.
 
-### 2. Frontend (React)
-- Navigate to the `frontend` directory.
-- Start the development server:
-  ```bash
-  npm run dev
-  ```
-- Open `http://localhost:3000` in your browser.
+### 🛡️ 2. Predictive Risk Engine (ML)
+- **Random Forest Risk Classifier**: Predicts "Low", "Medium", or "High" risk levels based on depth and coordinates.
+- **Magnitude Estimation**: Quantitative prediction of potential earthquake magnitude (Mw) using pre-trained regression models.
+- **Hotspot Analysis**: Backend-side clustering to identify regional seismic patterns.
 
-## Project Structure
-- `notebook/`: Contains data download and training scripts (`train_models.py` which generates the models).
-- `backend/`: FastAPI application and pre-trained models.
-- `frontend/`: React application with Leaflet map integration.
+### 🇮🇳 3. Real-Time India-Region Logs
+- **Live Streamed Data**: Direct integration with the **USGS FDSN Event Web Service**.
+- **Regional Filtering**: Exclusively tracks seismic activity within the Indian subcontinent (8°N-38°N, 68°E-98°E).
+- **Auto-Polling**: The dashboard updates every **30 seconds** without requiring a page refresh.
 
-## Important Note
-This system provides **risk estimation** and **statistical probability** based on historical USGS data. It is **NOT** a real-time prediction tool for the exact occurrence of earthquakes. Always follow local seismic safety protocols.
+### 📄 4. Professional Reporting & Data Export
+- **Dynamic PDF Reports**: Generate professional seismic assessments (with disclaimers) on-the-fly for any coordinate.
+- **CSV Data Export**: One-click download of the latest 30-day India dataset for secondary analysis in Excel or GIS.
+- **Session Persistence**: Automated `localStorage` caching ensures your assessment history is never lost.
+
+---
+
+## 🏗️ Technical Architecture
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Frontend** | React + Vite | Modern, high-performance UI Dashboard. |
+| **Backend** | FastAPI (Python) | High-speed inference and data processing. |
+| **ML Models** | Scikit-Learn | Random Forest & K-Means for risk/hotspots. |
+| **Mapping** | Leaflet.js | OpenStreetMap-based tiling (no API key required for map loads). |
+| **Reporting** | FPDF | Server-side PDF generation engine. |
+
+---
+
+## 📂 Project Structure
+
+```text
+QuakeRisk/
+├── backend/
+│   ├── main.py              # Core FastAPI Application & Inference
+│   ├── models/              # Pre-trained .pkl Model files
+│   └── requirements.txt     # Python Dependencies
+├── frontend/
+│   ├── src/                 
+│   │   ├── App.jsx          # Dashboard Logic & State Management
+│   │   └── index.css        # Premium Design & Layout Tokens
+│   └── package.json         # React & UI Dependencies
+├── notebook/
+│   ├── ML_Pipeline.md       # Technical Process Documentation
+│   ├── download_data.py     # USGS Raw Data Fetcher
+│   └── train_models.py      # ML Training Pipeline
+└── DEPLOYMENT.md            # Step-by-Step Hosting Guide
+```
+
+---
+
+## 🛠️ Getting Started Locally
+
+### 1. Backend Setup
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🛡️ Seismic Methodology & Data
+Models are trained using historical USGS datasets (2018-2023) ensuring robust predictions based on tectonic shift history.
+
+**Disclaimer**: *This project is for research and informational purposes. Predictions are based on historical probability and should not be used as the sole source for emergency planning.*
+
+---
+**Maintained by**: Vikash9546
+**Repository**: [QuakeRiskAI](https://github.com/Vikash9546/QuakeRiskAI)
