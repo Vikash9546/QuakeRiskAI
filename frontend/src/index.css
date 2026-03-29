@@ -1,0 +1,166 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark light;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0f172a;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  height: 100vh;
+  gap: 0;
+}
+
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 400px;
+  }
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #1e293b;
+}
+
+.sidebar {
+  background: #1e293b;
+  border-left: 1px solid #334155;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.card {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  background: #475569;
+  cursor: not-allowed;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+input {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.risk-low {
+  background: #064e3b;
+  color: #34d399;
+}
+
+.risk-medium {
+  background: #78350f;
+  color: #fbbf24;
+}
+
+.risk-high {
+  background: #7f1d1d;
+  color: #f87171;
+}
+
+.header {
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #f8fafc;
+}
+
+.header p {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.result-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #1e293b !important;
+}
