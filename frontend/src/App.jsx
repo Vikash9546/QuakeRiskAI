@@ -66,7 +66,7 @@ function App() {
     const handleAddressSearch = async () => {
         setResolving(true);
         try {
-            // This still uses the GOOGLE KEY through the backend for high-accuracy
+            // Geocoding through backend (Free OpenStreetMap-powered lookup)
             const response = await axios.get(`${API_BASE}/geocode`, { params: { address: addressInput } });
             if (response.data.lat) {
                 const newPos = { lat: response.data.lat, lng: response.data.lng };

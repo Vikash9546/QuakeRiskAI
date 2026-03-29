@@ -1,0 +1,397 @@
+INFO:     Will watch for changes in these directories: ['/Users/vikashkumar/Desktop/EarthQuake/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [59786] using StatReload
+INFO:     Started server process [59839]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:61112 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61254 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61393 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61421 - "OPTIONS /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61421 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61423 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61652 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61806 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61909 - "GET /files HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [59839]
+INFO:     Started server process [60007]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:62170 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62216 - "GET /resolve-map?url=https:%2F%2Fmaps.app.goo.gl%2FFTeYXFioMc6byRby5%3Fg_st%3Dawb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62328 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62440 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62701 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62983 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63308 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63575 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63853 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64142 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64398 - "GET /resolve-map?url=https:%2F%2Fmaps.app.goo.gl%2FFTeYXFioMc6byRby5%3Fg_st%3Dawb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64398 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64482 - "OPTIONS /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64482 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64484 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64950 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65237 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65514 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65514 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49288 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49334 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49334 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49412 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49680 - "GET /resolve-map?url=Google+Maps+JavaScript+API+error:+InvalidKeyMapError+https:%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Ferror-messages%23invalid-key-map-error+overrideMethod+%40+installHook.js:1+_.Lm+%40+main.js:182+Mza+%40+map.js:45+Jza+%40+map.js:44+Kza+%40+map.js:42+await+in+Kza+(anonymous)+%40+map.js:101+_.z.YD+%40+main.js:483+setTimeout+_.Aq+%40+main.js:241+_.z.start+%40+main.js:483+_.z.ri+%40+main.js:483+changed+%40+map.js:101+ho+%40+main.js:200+_.fo.bindTo+%40+main.js:395+TAa+%40+map.js:63+(anonymous)+%40+main.js:269+Promise.then+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+invokeLayoutEffectMountInDEV+%40+react-dom.development.js:25172+invokeEffectsInDev+%40+react-dom.development.js:27390+commitDoubleInvokeEffectsInDEV+%40+react-dom.development.js:27366+flushPassiveEffectsImpl+%40+react-dom.development.js:27095+flushPassiveEffects+%40+react-dom.development.js:27023+performSyncWorkOnRoot+%40+react-dom.development.js:26115+flushSyncCallbacks+%40+react-dom.development.js:12042+commitRootImpl+%40+react-dom.development.js:26998+commitRoot+%40+react-dom.development.js:26721+finishConcurrentRender+%40+react-dom.development.js:26020+performConcurrentWorkOnRoot+%40+react-dom.development.js:25848+workLoop+%40+scheduler.development.js:266+flushWork+%40+scheduler.development.js:239+performWorkUntilDeadline+%40+scheduler.development.js:533Understand+this+error+installHook.js:1+Google+Maps+JavaScript+API+warning:+InvalidKey+https:%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Ferror-messages%23invalid-key+overrideMethod+%40+installHook.js:1+oCa+%40+util.js:30+(anonymous)+%40+main.js:321+Promise.then+(anonymous)+%40+main.js:321+setTimeout+Jea+%40+main.js:321+await+in+Jea+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:38+(anonymous)+%40+main.js:626+(anonymous)+%40+main.js:626+PendingScript+getScript+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:28+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:42+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:43+PendingScript+(anonymous)+%40+index.mjs:123+fulfilled+%40+index.mjs:118+Promise.then+step+%40+index.mjs:120+(anonymous)+%40+index.mjs:121+__awaiter+%40+index.mjs:117+(anonymous)+%40+index.mjs:123+u+%40+index.mjs:123+d.%3Ccomputed%3E.d.%3Ccomputed%3E+%40+index.mjs:123+importLibrary+%40+index.mjs:123+(anonymous)+%40+index.mjs:123+setScript+%40+index.mjs:123+execute+%40+index.mjs:123+loadCallback+%40+index.mjs:123+(anonymous)+%40+index.mjs:123+loadPromise+%40+index.mjs:123+load+%40+index.mjs:123+effect+%40+useJsApiLoader.tsx:78+commitHookEffectListMount+%40+react-dom.development.js:23189+commitPassiveMountOnFiber+%40+react-dom.development.js:24965+commitPassiveMountEffects_complete+%40+react-dom.development.js:24930+commitPassiveMountEffects_begin+%40+react-dom.development.js:24917+commitPassiveMountEffects+%40+react-dom.development.js:24905+flushPassiveEffectsImpl+%40+react-dom.development.js:27078+flushPassiveEffects+%40+react-dom.development.js:27023+(anonymous)+%40+react-dom.development.js:26808+workLoop+%40+scheduler.development.js:266+flushWork+%40+scheduler.development.js:239+performWorkUntilDeadline+%40+scheduler.development.js:533Understand+this+warning+main.js:269+Uncaught+(in+promise)+TypeError:+Failed+to+execute+%27observe%27+on+%27IntersectionObserver%27:+parameter+1+is+not+of+type+%27Element%27.+(anonymous)+%40+main.js:269+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+commitLayoutEffectOnFiber+%40+react-dom.development.js:23344+commitLayoutMountEffects_complete+%40+react-dom.development.js:24727+commitLayoutEffects_begin+%40+react-dom.development.js:24713+commitLayoutEffects+%40+react-dom.development.js:24651+commitRootImpl+%40+react-dom.development.js:26862+commitRoot+%40+react-dom.development.js:26721+performSyncWorkOnRoot+%40+react-dom.development.js:26156+flushSyncCallbacks+%40+react-dom.development.js:12042+(anonymous)+%40+react-dom.development.js:25690Understand+this+error+main.js:269+Uncaught+(in+promise)+TypeError:+Failed+to+execute+%27observe%27+on+%27IntersectionObserver%27:+parameter+1+is+not+of+type+%27Element%27.+(anonymous)+%40+main.js:269+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+invokeLayoutEffectMountInDEV+%40+react-dom.development.js:25172+invokeEffectsInDev+%40+react-dom.development.js:27390+commitDoubleInvokeEffectsInDEV+%40+react-dom.development.js:27366+flushPassiveEffectsImpl+%40+react-dom.development.js:27095+flushPassiveEffects+%40+react-dom.development.js:27023+commitRootImpl+%40+react-dom.development.js:26974+commitRoot+%40+react-dom.development.js:26721+performSyncWorkOnRoot+%40+react-dom.development.js:26156+flushSyncCallbacks+%40+react-dom.development.js:12042+(anonymous)+%40+react-dom.development.js:25690Understand+this+error HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49680 - "GET /resolve-map?url=Google+Maps+JavaScript+API+error:+InvalidKeyMapError+https:%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Ferror-messages%23invalid-key-map-error+overrideMethod+%40+installHook.js:1+_.Lm+%40+main.js:182+Mza+%40+map.js:45+Jza+%40+map.js:44+Kza+%40+map.js:42+await+in+Kza+(anonymous)+%40+map.js:101+_.z.YD+%40+main.js:483+setTimeout+_.Aq+%40+main.js:241+_.z.start+%40+main.js:483+_.z.ri+%40+main.js:483+changed+%40+map.js:101+ho+%40+main.js:200+_.fo.bindTo+%40+main.js:395+TAa+%40+map.js:63+(anonymous)+%40+main.js:269+Promise.then+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+invokeLayoutEffectMountInDEV+%40+react-dom.development.js:25172+invokeEffectsInDev+%40+react-dom.development.js:27390+commitDoubleInvokeEffectsInDEV+%40+react-dom.development.js:27366+flushPassiveEffectsImpl+%40+react-dom.development.js:27095+flushPassiveEffects+%40+react-dom.development.js:27023+performSyncWorkOnRoot+%40+react-dom.development.js:26115+flushSyncCallbacks+%40+react-dom.development.js:12042+commitRootImpl+%40+react-dom.development.js:26998+commitRoot+%40+react-dom.development.js:26721+finishConcurrentRender+%40+react-dom.development.js:26020+performConcurrentWorkOnRoot+%40+react-dom.development.js:25848+workLoop+%40+scheduler.development.js:266+flushWork+%40+scheduler.development.js:239+performWorkUntilDeadline+%40+scheduler.development.js:533Understand+this+error+installHook.js:1+Google+Maps+JavaScript+API+warning:+InvalidKey+https:%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Ferror-messages%23invalid-key+overrideMethod+%40+installHook.js:1+oCa+%40+util.js:30+(anonymous)+%40+main.js:321+Promise.then+(anonymous)+%40+main.js:321+setTimeout+Jea+%40+main.js:321+await+in+Jea+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:38+(anonymous)+%40+main.js:626+(anonymous)+%40+main.js:626+PendingScript+getScript+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:28+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:42+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:43+PendingScript+(anonymous)+%40+index.mjs:123+fulfilled+%40+index.mjs:118+Promise.then+step+%40+index.mjs:120+(anonymous)+%40+index.mjs:121+__awaiter+%40+index.mjs:117+(anonymous)+%40+index.mjs:123+u+%40+index.mjs:123+d.%3Ccomputed%3E.d.%3Ccomputed%3E+%40+index.mjs:123+importLibrary+%40+index.mjs:123+(anonymous)+%40+index.mjs:123+setScript+%40+index.mjs:123+execute+%40+index.mjs:123+loadCallback+%40+index.mjs:123+(anonymous)+%40+index.mjs:123+loadPromise+%40+index.mjs:123+load+%40+index.mjs:123+effect+%40+useJsApiLoader.tsx:78+commitHookEffectListMount+%40+react-dom.development.js:23189+commitPassiveMountOnFiber+%40+react-dom.development.js:24965+commitPassiveMountEffects_complete+%40+react-dom.development.js:24930+commitPassiveMountEffects_begin+%40+react-dom.development.js:24917+commitPassiveMountEffects+%40+react-dom.development.js:24905+flushPassiveEffectsImpl+%40+react-dom.development.js:27078+flushPassiveEffects+%40+react-dom.development.js:27023+(anonymous)+%40+react-dom.development.js:26808+workLoop+%40+scheduler.development.js:266+flushWork+%40+scheduler.development.js:239+performWorkUntilDeadline+%40+scheduler.development.js:533Understand+this+warning+main.js:269+Uncaught+(in+promise)+TypeError:+Failed+to+execute+%27observe%27+on+%27IntersectionObserver%27:+parameter+1+is+not+of+type+%27Element%27.+(anonymous)+%40+main.js:269+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+commitLayoutEffectOnFiber+%40+react-dom.development.js:23344+commitLayoutMountEffects_complete+%40+react-dom.development.js:24727+commitLayoutEffects_begin+%40+react-dom.development.js:24713+commitLayoutEffects+%40+react-dom.development.js:24651+commitRootImpl+%40+react-dom.development.js:26862+commitRoot+%40+react-dom.development.js:26721+performSyncWorkOnRoot+%40+react-dom.development.js:26156+flushSyncCallbacks+%40+react-dom.development.js:12042+(anonymous)+%40+react-dom.development.js:25690Understand+this+error+main.js:269+Uncaught+(in+promise)+TypeError:+Failed+to+execute+%27observe%27+on+%27IntersectionObserver%27:+parameter+1+is+not+of+type+%27Element%27.+(anonymous)+%40+main.js:269+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+invokeLayoutEffectMountInDEV+%40+react-dom.development.js:25172+invokeEffectsInDev+%40+react-dom.development.js:27390+commitDoubleInvokeEffectsInDEV+%40+react-dom.development.js:27366+flushPassiveEffectsImpl+%40+react-dom.development.js:27095+flushPassiveEffects+%40+react-dom.development.js:27023+commitRootImpl+%40+react-dom.development.js:26974+commitRoot+%40+react-dom.development.js:26721+performSyncWorkOnRoot+%40+react-dom.development.js:26156+flushSyncCallbacks+%40+react-dom.development.js:12042+(anonymous)+%40+react-dom.development.js:25690Understand+this+error HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49680 - "GET /resolve-map?url=Google+Maps+JavaScript+API+error:+InvalidKeyMapError+https:%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Ferror-messages%23invalid-key-map-error+overrideMethod+%40+installHook.js:1+_.Lm+%40+main.js:182+Mza+%40+map.js:45+Jza+%40+map.js:44+Kza+%40+map.js:42+await+in+Kza+(anonymous)+%40+map.js:101+_.z.YD+%40+main.js:483+setTimeout+_.Aq+%40+main.js:241+_.z.start+%40+main.js:483+_.z.ri+%40+main.js:483+changed+%40+map.js:101+ho+%40+main.js:200+_.fo.bindTo+%40+main.js:395+TAa+%40+map.js:63+(anonymous)+%40+main.js:269+Promise.then+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+invokeLayoutEffectMountInDEV+%40+react-dom.development.js:25172+invokeEffectsInDev+%40+react-dom.development.js:27390+commitDoubleInvokeEffectsInDEV+%40+react-dom.development.js:27366+flushPassiveEffectsImpl+%40+react-dom.development.js:27095+flushPassiveEffects+%40+react-dom.development.js:27023+performSyncWorkOnRoot+%40+react-dom.development.js:26115+flushSyncCallbacks+%40+react-dom.development.js:12042+commitRootImpl+%40+react-dom.development.js:26998+commitRoot+%40+react-dom.development.js:26721+finishConcurrentRender+%40+react-dom.development.js:26020+performConcurrentWorkOnRoot+%40+react-dom.development.js:25848+workLoop+%40+scheduler.development.js:266+flushWork+%40+scheduler.development.js:239+performWorkUntilDeadline+%40+scheduler.development.js:533Understand+this+error+installHook.js:1+Google+Maps+JavaScript+API+warning:+InvalidKey+https:%2F%2Fdevelopers.google.com%2Fmaps%2Fdocumentation%2Fjavascript%2Ferror-messages%23invalid-key+overrideMethod+%40+installHook.js:1+oCa+%40+util.js:30+(anonymous)+%40+main.js:321+Promise.then+(anonymous)+%40+main.js:321+setTimeout+Jea+%40+main.js:321+await+in+Jea+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:38+(anonymous)+%40+main.js:626+(anonymous)+%40+main.js:626+PendingScript+getScript+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:28+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:42+(anonymous)+%40+js%3Flibraries%3Dplaces%26key%3Dc70832f56b52847a97294f44712e1511%26v%3Dweekly%26map_ids%3D%26language%3Den%26region%3DUS%26auth_referrer_policy%3Dorigin%26callback%3Dgoogle.maps.__ib__:43+PendingScript+(anonymous)+%40+index.mjs:123+fulfilled+%40+index.mjs:118+Promise.then+step+%40+index.mjs:120+(anonymous)+%40+index.mjs:121+__awaiter+%40+index.mjs:117+(anonymous)+%40+index.mjs:123+u+%40+index.mjs:123+d.%3Ccomputed%3E.d.%3Ccomputed%3E+%40+index.mjs:123+importLibrary+%40+index.mjs:123+(anonymous)+%40+index.mjs:123+setScript+%40+index.mjs:123+execute+%40+index.mjs:123+loadCallback+%40+index.mjs:123+(anonymous)+%40+index.mjs:123+loadPromise+%40+index.mjs:123+load+%40+index.mjs:123+effect+%40+useJsApiLoader.tsx:78+commitHookEffectListMount+%40+react-dom.development.js:23189+commitPassiveMountOnFiber+%40+react-dom.development.js:24965+commitPassiveMountEffects_complete+%40+react-dom.development.js:24930+commitPassiveMountEffects_begin+%40+react-dom.development.js:24917+commitPassiveMountEffects+%40+react-dom.development.js:24905+flushPassiveEffectsImpl+%40+react-dom.development.js:27078+flushPassiveEffects+%40+react-dom.development.js:27023+(anonymous)+%40+react-dom.development.js:26808+workLoop+%40+scheduler.development.js:266+flushWork+%40+scheduler.development.js:239+performWorkUntilDeadline+%40+scheduler.development.js:533Understand+this+warning+main.js:269+Uncaught+(in+promise)+TypeError:+Failed+to+execute+%27observe%27+on+%27IntersectionObserver%27:+parameter+1+is+not+of+type+%27Element%27.+(anonymous)+%40+main.js:269+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+commitLayoutEffectOnFiber+%40+react-dom.development.js:23344+commitLayoutMountEffects_complete+%40+react-dom.development.js:24727+commitLayoutEffects_begin+%40+react-dom.development.js:24713+commitLayoutEffects+%40+react-dom.development.js:24651+commitRootImpl+%40+react-dom.development.js:26862+commitRoot+%40+react-dom.development.js:26721+performSyncWorkOnRoot+%40+react-dom.development.js:26156+flushSyncCallbacks+%40+react-dom.development.js:12042+(anonymous)+%40+react-dom.development.js:25690Understand+this+error+main.js:269+Uncaught+(in+promise)+TypeError:+Failed+to+execute+%27observe%27+on+%27IntersectionObserver%27:+parameter+1+is+not+of+type+%27Element%27.+(anonymous)+%40+main.js:269+_.rr+%40+main.js:269+(anonymous)+%40+GoogleMap.tsx:423+componentDidMount+%40+GoogleMap.tsx:442+invokeLayoutEffectMountInDEV+%40+react-dom.development.js:25172+invokeEffectsInDev+%40+react-dom.development.js:27390+commitDoubleInvokeEffectsInDEV+%40+react-dom.development.js:27366+flushPassiveEffectsImpl+%40+react-dom.development.js:27095+flushPassiveEffects+%40+react-dom.development.js:27023+commitRootImpl+%40+react-dom.development.js:26974+commitRoot+%40+react-dom.development.js:26721+performSyncWorkOnRoot+%40+react-dom.development.js:26156+flushSyncCallbacks+%40+react-dom.development.js:12042+(anonymous)+%40+react-dom.development.js:25690Understand+this+error HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49680 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49758 - "GET /resolve-map?url= HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49758 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49954 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50253 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50509 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50805 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51074 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51119 - "OPTIONS /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51119 - "POST /predict HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [60007]
+INFO:     Started server process [61098]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:51262 - "GET /geocode?address=pune,maharastra,india HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51347 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51383 - "GET /geocode?address=pune,maharastra,india HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61098]
+INFO:     Started server process [61443]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+Google Geocode Failed: REQUEST_DENIED. Trying Fallback...
+INFO:     127.0.0.1:51588 - "GET /geocode?address=pune,maharastra,india HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51588 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51588 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51691 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51710 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51728 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51737 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51775 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51806 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51872 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51929 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51958 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52010 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52056 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52088 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52139 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52151 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52190 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52208 - "GET /files HTTP/1.1" 404 Not Found
+Google Geocode Failed: REQUEST_DENIED. Trying Fallback...
+INFO:     127.0.0.1:52219 - "GET /geocode?address=kolkata,+westbengal HTTP/1.1" 200 OK
+Google Geocode Failed: REQUEST_DENIED. Trying Fallback...
+INFO:     127.0.0.1:52230 - "GET /geocode?address=kolkata,india HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52230 - "OPTIONS /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52230 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52236 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52256 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52288 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52305 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52324 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52353 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52359 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52361 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52380 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52392 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52400 - "GET /files HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61443]
+INFO:     Started server process [65072]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:52418 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52418 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52432 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52432 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52435 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52450 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52470 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52494 - "GET /files HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65072]
+INFO:     Started server process [65155]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:52503 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52522 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52522 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52529 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52536 - "GET /files HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65155]
+INFO:     Started server process [65204]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:52551 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52561 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52561 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52564 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52564 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52586 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52602 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52602 - "GET /files HTTP/1.1" 404 Not Found
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65204]
+INFO:     Started server process [65492]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:52614 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52628 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52628 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52649 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52659 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52669 - "GET /files HTTP/1.1" 404 Not Found
+Google Geocode Failed: REQUEST_DENIED. Trying Fallback...
+INFO:     127.0.0.1:52669 - "GET /geocode?address=kolkata,india HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52669 - "OPTIONS /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52669 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52676 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52683 - "GET /generate-report?lat=22.5726459&lng=88.3638953&risk=Low&prob=17&mag=4.54 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52694 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52706 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52716 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52729 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52738 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52741 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52752 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52758 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52764 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52775 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52783 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52787 - "GET /seismic-log HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65492]
+INFO:     Started server process [66006]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:52800 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52800 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52800 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52822 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52831 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52831 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52837 - "GET /export-data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52834 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52859 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52869 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52882 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52884 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52890 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52921 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52924 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52935 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52951 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52961 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52981 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52981 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52988 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52996 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52996 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52999 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53011 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53025 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53032 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53032 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53035 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53035 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53035 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53063 - "OPTIONS /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53063 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53065 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53068 - "GET /generate-report?lat=27.293689224852407&lng=90.35156250000001&risk=Low&prob=17&mag=4.61 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53074 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53081 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53081 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53086 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53098 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53103 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53108 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53125 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53125 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53129 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53145 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53145 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53148 - "POST /predict HTTP/1.1" 200 OK
+Google Geocode Failed: REQUEST_DENIED. Trying Fallback...
+INFO:     127.0.0.1:53159 - "GET /geocode?address=kolkata,india HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53159 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53159 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53159 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53159 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53180 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53180 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53187 - "GET /files HTTP/1.1" 404 Not Found
+Google Geocode Failed: REQUEST_DENIED. Trying Fallback...
+INFO:     127.0.0.1:53195 - "GET /geocode?address=pune,india HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53195 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53195 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53195 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53195 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53231 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53231 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53254 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53261 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53261 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53283 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53305 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53305 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53322 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53339 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53376 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53374 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53406 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53408 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53403 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53408 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53514 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53516 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53608 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53610 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53702 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53704 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53802 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53802 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53877 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53874 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53943 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53941 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53972 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53974 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54005 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54003 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54034 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54035 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54062 - "GET /files HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54067 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54158 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54170 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54182 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54190 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54202 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54207 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54217 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54226 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54270 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54288 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54310 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54326 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54337 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54351 - "GET /seismic-log HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66006]
+INFO:     Started server process [69025]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Models loaded successfully.
+INFO:     127.0.0.1:54386 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54413 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54427 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54458 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54467 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54481 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54489 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54507 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54507 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54512 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54512 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54527 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54546 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54552 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54570 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54570 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54573 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54619 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54619 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54622 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54662 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54668 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54679 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54692 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54709 - "GET /seismic-log HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [69025]
+INFO:     Started server process [70079]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+All models loaded successfully!
+INFO:     127.0.0.1:54726 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54750 - "GET /seismic-log HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70079]
+INFO:     Started server process [70769]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+All models loaded successfully!
+INFO:     127.0.0.1:54780 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54813 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54838 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54845 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54855 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54871 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54953 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54985 - "GET /seismic-log HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54999 - "GET /seismic-log HTTP/1.1" 200 OK

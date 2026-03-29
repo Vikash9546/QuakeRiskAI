@@ -9,9 +9,6 @@ from fastapi.middleware.cors import CORSMiddleware
 # Initialize FastAPI app
 app = FastAPI(title="Earthquake Risk Analysis API")
 
-# Load configuration from environment
-GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
-
 # Add CORS middleware to allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
@@ -117,37 +114,18 @@ def resolve_map(url: str):
 def geocode(address: str):
     import requests
     try:
-        # 1. Try Google Geocoding first
-        if GOOGLE_MAPS_API_KEY:
-            params = {
-                "address": address,
-                "key": GOOGLE_MAPS_API_KEY
-            }
-            response = requests.get(
-                "https://maps.googleapis.com/maps/api/geocode/json",
-                params=params,
-                timeout=10
-            )
-            data = response.json()
-            if data.get("status") == "OK":
-                res = data["results"][0]["geometry"]["location"]
-                return {"lat": res["lat"], "lng": res["lng"]}
-            else:
-                print(f"Google Geocoding failed: {data.get('status')} - {data.get('error_message')}")
+        # Using Nominatim (OpenStreetMap) ONLY for geocoding
+        print(f"Geocoding address: {address}")
         
-        # 2. Fallback to Nominatim (OpenStreetMap) if Google fails or key is missing
-        print("Falling back to OpenStreetMap geocoding...")
-        
-        # Using a public geocoding fallback for demonstration
-        fallback_url = f"https://nominatim.openstreetmap.org/search?q={address}&format=json&limit=1"
+        url = f"https://nominatim.openstreetmap.org/search?q={address}&format=json&limit=1"
         headers = {'User-Agent': 'QuakeRiskAI/1.0'}
-        f_res = requests.get(fallback_url, headers=headers, timeout=10)
-        f_data = f_res.json()
+        res = requests.get(url, headers=headers, timeout=10)
+        data = res.json()
         
-        if f_data and len(f_data) > 0:
-            return {"lat": float(f_data[0]["lat"]), "lng": float(f_data[0]["lon"])}
+        if data and len(data) > 0:
+            return {"lat": float(data[0]["lat"]), "lng": float(data[0]["lon"])}
             
-        return {"error": f"Address not found. (Google: {data.get('status')})"}
+        return {"error": f"Address '{address}' not found."}
     except Exception as e:
         return {"error": str(e)}
 
