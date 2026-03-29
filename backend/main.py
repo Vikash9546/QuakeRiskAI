@@ -49,26 +49,41 @@ class PredictionOutput(BaseModel):
 def read_root():
     return {"message": "Welcome to the Earthquake Risk Analysis API"}
 
+# Global Cache for USGS data (60s validity)
+usgs_cache = {"data": None, "timestamp": 0}
+
 @app.post("/predict", response_model=PredictionOutput)
 def predict(input_data: PredictionInput):
     import requests
+    import time
     try:
-        # 1. Fetch real-time USGS data to calculate dynamic features
-        # We check the region (bounding box India) to get actual frequency
-        usgs_url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=8&maxlatitude=38&minlongitude=68&maxlongitude=98&limit=100"
-        response = requests.get(usgs_url, timeout=10)
-        data = response.json()
+        # Cache handling (fetch if expired or empty)
+        current_time_sec = time.time()
+        if not usgs_cache["data"] or (current_time_sec - usgs_cache["timestamp"] > 60):
+            usgs_url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=8&maxlatitude=38&minlongitude=68&maxlongitude=98&limit=100"
+            res = requests.get(usgs_url, timeout=10)
+            usgs_cache["data"] = res.json()
+            usgs_cache["timestamp"] = current_time_sec
+            print("Refreshed USGS Cache")
+            
+        data = usgs_cache["data"]
         
         # Calculate features based on real data
-        # freq_30: number of events in the India region
-        freq_30 = float(len(data.get("features", [])))
+        # freq_30: number of events within a local proximity (e.g., +/- 2 degrees)
+        all_events = data.get("features", [])
+        nearby_events = [
+            e for e in all_events
+            if abs(e["geometry"]["coordinates"][1] - input_data.latitude) < 2.0
+            and abs(e["geometry"]["coordinates"][0] - input_data.longitude) < 2.0
+        ]
+        freq_30 = float(len(nearby_events))
         
-        # time_diff: approximate time since last event in hours (default to 1.0 if unknown)
+        # time_diff: approximate time since last local event in hours
         time_diff = 1.0
         if freq_30 > 0:
-            last_event_time = data["features"][0]["properties"]["time"]
-            current_time = pd.Timestamp.now().value // 10**6 # to ms
-            time_diff = max(0.1, (current_time - last_event_time) / (1000 * 3600)) # hours
+            last_event_time = nearby_events[0]["properties"]["time"]
+            current_time = pd.Timestamp.now().value // 10**6 
+            time_diff = max(0.1, (current_time - last_event_time) / (1000 * 3600))
 
         # 2. Preprocess input
         features = pd.DataFrame([{

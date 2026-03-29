@@ -17,7 +17,9 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:8000' : 'https://quakeriskai.onrender.com';
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') 
+    ? 'http://localhost:8000' 
+    : 'https://quakeriskai.onrender.com';
 
 function LeafletClick({ setPosition }) {
     useMapEvents({
