@@ -108,11 +108,14 @@ def resolve_map(url: str):
 def geocode(address: str):
     import requests
     try:
-        # Try Google Geocoding First
-        google_key = "c70832f56b52847a97294f44712e1511"
+        # 1. Try Google Geocoding first
+        params = {
+            "address": address,
+            "key": "AIzaSyBosxXVCpu_uoc0EBIPZ9KjKdX93ehQV40"
+        }
         response = requests.get(
             "https://maps.googleapis.com/maps/api/geocode/json",
-            params={"address": address, "key": google_key},
+            params=params,
             timeout=10
         )
         data = response.json()
