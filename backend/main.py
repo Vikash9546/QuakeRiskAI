@@ -207,6 +207,43 @@ def generate_report(lat: float, lng: float, risk: str, prob: float, mag: float):
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/export-data")
+def export_data():
+    from fastapi.responses import Response
+    import io
+    try:
+        # Fetch fresh data for export (India scope)
+        import requests
+        usgs_url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=8&maxlatitude=38&minlongitude=68&maxlongitude=98&limit=100"
+        response = requests.get(usgs_url, timeout=10)
+        data = response.json()
+        
+        events = []
+        for feature in data.get("features", []):
+            prop = feature["properties"]
+            geom = feature["geometry"]["coordinates"]
+            events.append({
+                "time": pd.to_datetime(prop["time"], unit="ms").strftime("%Y-%m-%d %H:%M:%S"),
+                "lat": geom[1],
+                "lng": geom[0],
+                "magnitude": prop["mag"],
+                "location": prop.get("place", "N/A"),
+                "status": prop.get("status", ""),
+                "tsunami_alert": prop.get("tsunami", 0)
+            })
+            
+        df = pd.DataFrame(events)
+        stream = io.StringIO()
+        df.to_csv(stream, index=False)
+        
+        return Response(
+            content=stream.getvalue(),
+            media_type="text/csv",
+            headers={"Content-Disposition": "attachment; filename=seismic_export_india.csv"}
+        )
+    except Exception as e:
+        return {"error": str(e)}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
