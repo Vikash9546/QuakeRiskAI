@@ -28,6 +28,28 @@ QuakeRisk AI is a sophisticated full-stack earthquake monitoring and risk analys
 
 ---
 
+## 🌳 Machine Learning Pipeline
+
+The system uses a multi-stage pipeline for geospatial risk classification and magnitude estimation.
+
+```mermaid
+graph TD
+    A[USGS Global Data Ingestion] --> B[Exploratory Data Analysis]
+    B --> C[Data Preprocessing & Normalization]
+    C --> D{ML Feature Engineering}
+    D --> E[Lattitude, Longitude, Depth Parsing]
+    D --> F[Temporal Factorization]
+    
+    E & F --> G[Random Forest Training]
+    G --> H[Risk Classification Model]
+    G --> I[Magnitude Estimator]
+    G --> J[Hotspot K-Means Clustering]
+    
+    H & I & J --> K[Joblib Model Persistence]
+    K --> L[FastAPI Real-Time Inference]
+    L --> M[React Premium Dashboard]
+```
+
 ## 🏗️ Technical Architecture
 
 | Component | Technology | Role |
