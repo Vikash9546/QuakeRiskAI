@@ -137,6 +137,76 @@ def geocode(address: str):
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/seismic-log")
+def seismic_log():
+    import requests
+    try:
+        # USGS Feed (Past 30 days to ensure we have enough India data)
+        # Bounding box for India roughly: minlat=8, minlon=68, maxlat=38, maxlon=98
+        usgs_url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minlatitude=8&maxlatitude=38&minlongitude=68&maxlongitude=98&limit=50"
+        response = requests.get(usgs_url, timeout=10)
+        data = response.json()
+        
+        events = []
+        for feature in data.get("features", []):
+            prop = feature["properties"]
+            geom = feature["geometry"]["coordinates"]
+            
+            # Additional text check for "India", "Nepal", "Bangladesh", "Pakistan" or just India
+            place = prop.get("place", "")
+            
+            events.append({
+                "time": pd.to_datetime(prop["time"], unit="ms").strftime("%Y-%m-%d %H:%M:%S"),
+                "latitude": geom[1],
+                "longitude": geom[0],
+                "mag": prop["mag"],
+                "place": place
+            })
+        
+        if not events:
+            return [{"time": "Monitoring Region: India", "latitude": 20.5, "longitude": 78.9, "mag": 0.0, "place": "No recent seismic activity detected in India."}]
+            
+        return events
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/generate-report")
+def generate_report(lat: float, lng: float, risk: str, prob: float, mag: float):
+    from fpdf import FPDF
+    import tempfile
+    from fastapi.responses import FileResponse
+    
+    try:
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", 'B', 16)
+        pdf.cell(200, 10, txt="QuakeRisk AI - Seismic Assessment", ln=True, align='C')
+        
+        pdf.set_font("Arial", size=12)
+        pdf.ln(10)
+        pdf.cell(200, 10, txt=f"Date: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}", ln=True)
+        pdf.cell(200, 10, txt=f"Location: {lat} N, {lng} E", ln=True)
+        pdf.ln(10)
+        
+        pdf.set_font("Arial", 'B', 14)
+        pdf.cell(200, 10, txt="Risk Assessment Results:", ln=True)
+        pdf.set_font("Arial", size=12)
+        pdf.cell(200, 10, txt=f"Risk Level: {risk.upper()}", ln=True)
+        pdf.cell(200, 10, txt=f"Risk Probability: {prob}%", ln=True)
+        pdf.cell(200, 10, txt=f"Predicted Magnitude: {mag} Mw", ln=True)
+        
+        pdf.ln(10)
+        pdf.set_font("Arial", 'I', 10)
+        pdf.multi_cell(0, 5, txt="Disclaimer: This report is based on machine learning predictions and historical USGS data. It is intended for informational and planning purposes only and should not be used as a deterministic prediction of future events.")
+
+        # Save to temp file
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
+        pdf.output(temp_file.name)
+        
+        return FileResponse(temp_file.name, media_type='application/pdf', filename=f"QuakeRisk_Report_{lat}_{lng}.pdf")
+    except Exception as e:
+        return {"error": str(e)}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
