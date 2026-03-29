@@ -9,6 +9,9 @@ from fastapi.middleware.cors import CORSMiddleware
 # Initialize FastAPI app
 app = FastAPI(title="Earthquake Risk Analysis API")
 
+# Load configuration from environment
+GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
+
 # Add CORS middleware to allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
