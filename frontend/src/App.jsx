@@ -37,7 +37,16 @@ function App() {
     const [addressInput, setAddressInput] = useState('');
     const [resolving, setResolving] = useState(false);
     const [seismicLog, setSeismicLog] = useState([]);
+    const [history, setHistory] = useState(() => {
+        const saved = localStorage.getItem('quake_history');
+        return saved ? JSON.parse(saved) : [];
+    });
     const mapRef = useRef(null);
+
+    // Persist history to localStorage
+    useEffect(() => {
+        localStorage.setItem('quake_history', JSON.stringify(history));
+    }, [history]);
 
     // Fetch Seismic Log with Auto-refresh every 30s
     useEffect(() => {
@@ -77,6 +86,16 @@ function App() {
                 depth: parseFloat(depth)
             });
             setPrediction(response.data);
+            
+            // Add to history
+            const newEntry = {
+                ...response.data,
+                lat: position.lat,
+                lng: position.lng,
+                time: new Date().toLocaleTimeString()
+            };
+            setHistory(prev => [newEntry, ...prev]);
+            
         } catch (e) { console.error(e) } finally { setLoading(false) }
     };
 
@@ -109,61 +128,101 @@ function App() {
                 );
             case 'Risk Reports':
                 return (
-                    <div style={{ padding: '32px', flex: 1 }}>
-                        <span className="section-label">Generated Reports Portal</span>
-                        <div style={{ marginTop: '20px' }}>
-                            {prediction ? (
-                                <div className="card" style={{ borderLeft: '4px solid #10b981', marginBottom: '20px' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div style={{ display: 'flex', gap: '16px' }}>
-                                            <FileText color="#10b981" />
+                    <div style={{ padding: '32px', flex: 1, overflowY: 'auto' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <span className="section-label">Session Assessment History</span>
+                            {history.length > 0 && (
+                                <button 
+                                    onClick={() => setHistory([])}
+                                    style={{ background: 'none', border: 'none', color: '#ef4444', fontSize: '0.65rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+                                >
+                                    <AlertTriangle size={12} /> CLEAR ALL
+                                </button>
+                            )}
+                        </div>
+                        <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                            {history.length > 0 ? (
+                                history.map((h, i) => (
+                                    <motion.div key={i} className="card" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} style={{ borderLeft: `4px solid ${h.risk_level === 'High' ? '#ef4444' : '#10b981'}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                                            <div style={{ background: '#f1f3f5', padding: '10px', borderRadius: '8px' }}>
+                                                <ShieldCheck color={h.risk_level === 'High' ? '#ef4444' : '#10b981'} />
+                                            </div>
                                             <div>
-                                                <div style={{ fontWeight: 700 }}>Custom Risk Assessment: {position.lat.toFixed(2)}, {position.lng.toFixed(2)}</div>
-                                                <p style={{ fontSize: '0.75rem', color: '#6c757d' }}>Ready for download. Includes magnitude estimation and risk probability.</p>
+                                                <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Assessment at {h.lat.toFixed(4)}°, {h.lng.toFixed(4)}°</div>
+                                                <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '4px' }}>Analyzed at {h.time} • Risk Level: <span style={{fontWeight: 700, color: h.risk_level === 'High' ? '#ef4444' : '#10b981'}}>{h.risk_level}</span></div>
                                             </div>
                                         </div>
-                                        <a 
-                                            href={`${API_BASE}/generate-report?lat=${position.lat}&lng=${position.lng}&risk=${prediction.risk_level}&prob=${prediction.risk_probability}&mag=${prediction.predicted_magnitude}`}
-                                            className="eval-btn" 
-                                            style={{ width: 'auto', padding: '8px 16px', background: '#10b981', textDecoration: 'none', textAlign: 'center' }}
-                                            target="_blank"
-                                        >
-                                            Download PDF
-                                        </a>
-                                    </div>
-                                </div>
+                                        <div style={{ display: 'flex', gap: '12px' }}>
+                                            <div style={{ textAlign: 'right', borderRight: '1px solid #e9ecef', paddingRight: '12px' }}>
+                                                <div style={{ fontWeight: 800, fontSize: '1rem' }}>{h.predicted_magnitude}</div>
+                                                <div style={{ fontSize: '0.6rem', color: '#6c757d' }}>MAGNITUDE</div>
+                                            </div>
+                                            <a 
+                                                href={`${API_BASE}/generate-report?lat=${h.lat}&lng=${h.lng}&risk=${h.risk_level}&prob=${h.risk_probability}&mag=${h.predicted_magnitude}`}
+                                                style={{ color: '#10b981', background: '#ecfdf5', padding: '8px', borderRadius: '4px', display: 'flex' }}
+                                                target="_blank"
+                                                title="Download PDF"
+                                            >
+                                                <Download size={18} />
+                                            </a>
+                                        </div>
+                                    </motion.div>
+                                ))
                             ) : (
-                                <div className="card" style={{ opacity: 0.6, textAlign: 'center', padding: '40px' }}>
-                                    <FileText size={48} color="#6c757d" style={{ marginBottom: '16px' }} />
-                                    <p>Please perform an analysis in the 'Global Map' tab to generate a custom report.</p>
+                                <div className="card" style={{ opacity: 0.6, textAlign: 'center', padding: '60px' }}>
+                                    <Search size={48} color="#6c757d" style={{ marginBottom: '16px' }} />
+                                    <p>No assessments recorded in this session.</p>
+                                    <p style={{ fontSize: '0.75rem', marginTop: '8px' }}>Perform an analysis in the 'Global Map' tab to populate this report.</p>
                                 </div>
                             )}
-                            
-                            <div className="card" style={{ marginTop: '20px', borderLeft: '4px solid #3b82f6' }}>
-                                <div style={{ display: 'flex', gap: '16px' }}>
-                                    <FileText color="#3b82f6" />
-                                    <div>
-                                        <div style={{ fontWeight: 700 }}>Quarterly Regional Overview - India (March 2024)</div>
-                                        <p style={{ fontSize: '0.75rem', color: '#6c757d' }}>Tectonic shift analysis for the Himalayan and Coastal regions.</p>
-                                        <button style={{ background: '#3b82f6', color: 'white', border: 'none', padding: '6px 12px', borderRadius: '4px', fontSize: '0.7rem' }}>View Archive</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 );
             case 'Station Health':
+                const stations = [
+                    { name: 'Western Ghats Node', loc: 'Pune, IN', status: 'Stable', lat: '12ms', uptime: '99.98%', model: 'Guralp CMG-5T' },
+                    { name: 'Himalayan Array', loc: 'Uttarkashi, IN', status: 'Stable', lat: '45ms', uptime: '98.50%', model: 'Nanometrics Trillium' },
+                    { name: 'Coastal Monitor', loc: 'Chennai, IN', status: 'Stable', lat: '18ms', uptime: '99.99%', model: 'Kinemetrics Etna' },
+                    { name: 'Indo-Gangetic Sensor', loc: 'New Delhi, IN', status: 'Maintenance', lat: '--', uptime: '92.10%', model: 'Quanterra Q330' },
+                ];
                 return (
-                    <div style={{ padding: '32px', flex: 1 }}>
-                        <span className="section-label">Global Sensor Network</span>
+                    <div style={{ padding: '32px', flex: 1, overflowY: 'auto' }}>
+                        <span className="section-label">Subcontinent Sensor Network</span>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '20px' }}>
-                            {['North America', 'Pacific Rim', 'South Asia', 'Europe Central'].map(loc => (
-                                <div key={loc} className="card" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                                        <ShieldCheck color="#10b981" />
-                                        <span style={{ fontWeight: 600 }}>{loc}</span>
+                            {stations.map(st => (
+                                <div key={st.name} className="card">
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                                            <div style={{ background: st.status === 'Stable' ? '#d1fae5' : '#fef3c7', padding: '10px', borderRadius: '8px' }}>
+                                                <ShieldCheck color={st.status === 'Stable' ? '#059669' : '#d97706'} />
+                                            </div>
+                                            <div>
+                                                <div style={{ fontWeight: 700, fontSize: '0.9rem' }}>{st.name}</div>
+                                                <div style={{ fontSize: '0.7rem', color: '#6c757d' }}>{st.loc}</div>
+                                            </div>
+                                        </div>
+                                        <span style={{ 
+                                            padding: '4px 8px', borderRadius: '4px', fontSize: '0.6rem', fontWeight: 800,
+                                            background: st.status === 'Stable' ? '#d1fae5' : '#fef3c7',
+                                            color: st.status === 'Stable' ? '#059669' : '#d97706'
+                                        }}>{st.status}</span>
                                     </div>
-                                    <span style={{ color: '#10b981', fontSize: '0.7rem', fontWeight: 700 }}>ONLINE</span>
+                                    
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', marginTop: '20px', padding: '12px', background: '#f8f9fa', borderRadius: '4px' }}>
+                                        <div>
+                                            <div style={{ fontSize: '0.55rem', color: '#6c757d' }}>LATENCY</div>
+                                            <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>{st.lat}</div>
+                                        </div>
+                                        <div>
+                                            <div style={{ fontSize: '0.55rem', color: '#6c757d' }}>UPTIME</div>
+                                            <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>{st.uptime}</div>
+                                        </div>
+                                        <div>
+                                            <div style={{ fontSize: '0.55rem', color: '#6c757d' }}>MODEL</div>
+                                            <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>{st.model.split(' ')[1]}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -207,29 +266,14 @@ function App() {
                     <div className={`nav-item ${activeTab === 'Global Map' ? 'active' : ''}`} onClick={() => setActiveTab('Global Map')}><Globe size={18} /> Global Map</div>
                     <div className={`nav-item ${activeTab === 'Seismic Log' ? 'active' : ''}`} onClick={() => setActiveTab('Seismic Log')}><Activity size={18} /> Seismic Log</div>
                     <div className={`nav-item ${activeTab === 'Risk Reports' ? 'active' : ''}`} onClick={() => setActiveTab('Risk Reports')}><FileText size={18} /> Risk Reports</div>
-                    <div className={`nav-item ${activeTab === 'Station Health' ? 'active' : ''}`} onClick={() => setActiveTab('Station Health')}><Database size={18} /> Station Health</div>
                 </nav>
 
-                <button className="export-btn" onClick={() => window.print()}>
-                    <Download size={16} /> Export Data
+                <button className="export-btn" onClick={() => window.open(`${API_BASE}/export-data`, '_blank')}>
+                    <Download size={16} /> Export India Dataset
                 </button>
             </aside>
 
             <main className="main-area">
-                <header className="top-bar">
-                    <div className="top-nav">
-                        <span className="top-nav-item">QuakeRisk AI</span>
-                        <span className={`top-nav-item ${activeTab === 'Global Map' ? 'active' : ''}`} onClick={() => setActiveTab('Global Map')}>Search</span>
-                        <span className="top-nav-item">Feed</span>
-                        <span className="top-nav-item">History</span>
-                    </div>
-                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                        <Bell size={20} color="#6c757d" />
-                        <Settings size={20} color="#6c757d" />
-                        <User size={20} color="#6c757d" />
-                    </div>
-                </header>
-
                 {renderMainContent()}
             </main>
 
