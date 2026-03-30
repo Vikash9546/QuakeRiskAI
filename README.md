@@ -1,34 +1,34 @@
-# 🛰️ QuakeRisk AI: Global & Regional Seismic Hazard Intelligence
+# QuakeRisk AI: Global & Regional Seismic Hazard Intelligence
 
 QuakeRisk AI is a sophisticated full-stack earthquake monitoring and risk analysis platform. Built with a focus on the Indian subcontinent, it leverages **Machine Learning (Random Forest)** and real-time **USGS Geospatial data** to provide high-precision seismic intelligence.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 🌍 1. Advanced Geospatial Monitoring
+### 1. Advanced Geospatial Monitoring
 - **Interactive Global Map**: Precise coordinate selection using Leaflet & OpenStreetMap.
 - **Smart Address Search**: Instant geocoding that pans the map to any specific city or street worldwide.
 - **High-Fidelity Tracking**: Real-time display of focus coordinates and monitoring status.
 
-### 🛡️ 2. Predictive Risk Engine (ML)
+### 2. Predictive Risk Engine (ML)
 - **Random Forest Risk Classifier**: Predicts "Low", "Medium", or "High" risk levels based on depth and coordinates.
 - **Magnitude Estimation**: Quantitative prediction of potential earthquake magnitude (Mw) using pre-trained regression models.
 - **Hotspot Analysis**: Backend-side clustering to identify regional seismic patterns.
 
-### 🇮🇳 3. Real-Time India-Region Logs
+### 3. Real-Time India-Region Logs
 - **Live Streamed Data**: Direct integration with the **USGS FDSN Event Web Service**.
 - **Regional Filtering**: Exclusively tracks seismic activity within the Indian subcontinent (8°N-38°N, 68°E-98°E).
 - **Auto-Polling**: The dashboard updates every **30 seconds** without requiring a page refresh.
 
-### 📄 4. Professional Reporting & Data Export
+### 4. Professional Reporting & Data Export
 - **Dynamic PDF Reports**: Generate professional seismic assessments (with disclaimers) on-the-fly for any coordinate.
 - **CSV Data Export**: One-click download of the latest 30-day India dataset for secondary analysis in Excel or GIS.
 - **Session Persistence**: Automated `localStorage` caching ensures your assessment history is never lost.
 
 ---
 
-## 🌳 Machine Learning Pipeline
+## Machine Learning Pipeline
 
 The system uses a multi-stage pipeline for geospatial risk classification and magnitude estimation.
 
@@ -50,7 +50,7 @@ graph TD
     L --> M[React Premium Dashboard]
 ```
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 | Component | Technology | Role |
 | :--- | :--- | :--- |
@@ -62,7 +62,7 @@ graph TD
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 QuakeRisk/
@@ -84,7 +84,7 @@ QuakeRisk/
 
 ---
 
-## 🛠️ Getting Started Locally
+## Getting Started Locally
 
 ### 1. Backend Setup
 ```bash
@@ -102,11 +102,8 @@ npm run dev
 
 ---
 
-## 🛡️ Seismic Methodology & Data
+## Seismic Methodology & Data
 Models are trained using historical USGS datasets (2018-2023) ensuring robust predictions based on tectonic shift history.
 
 **Disclaimer**: *This project is for research and informational purposes. Predictions are based on historical probability and should not be used as the sole source for emergency planning.*
 
----
-**Maintained by**: Vikash9546
-**Repository**: [QuakeRiskAI](https://github.com/Vikash9546/QuakeRiskAI)
