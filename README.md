@@ -2,6 +2,9 @@
 
 QuakeRisk AI is a sophisticated full-stack earthquake monitoring and risk analysis platform. Built with a focus on the Indian subcontinent, it leverages **Machine Learning (Random Forest)** and real-time **USGS Geospatial data** to provide high-precision seismic intelligence.
 
+
+[Live](https://quake-risk-ai.vercel.app/)
+
 ---
 
 ## Key Features
